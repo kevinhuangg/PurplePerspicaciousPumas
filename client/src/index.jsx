@@ -6,6 +6,7 @@ import { Router, Route, hashHistory } from 'react-router';
 import Lobby from './components/Lobby.jsx';
 import Home from './components/Home.jsx';
 import Game from './components/Game.jsx';
+import UserProfile from './components/userProfile.jsx';
 // import io from 'socket.io-client';
 
 class App extends React.Component {
@@ -15,6 +16,7 @@ class App extends React.Component {
 
       this.sendToGame = this.sendToGame.bind(this);
       this.sendToLobby = this.sendToLobby.bind(this);
+      this.sendToProfile = this.sendToProfile.bind(this);
     }
 
     sendToLobby(disconnectTimeOut) {
@@ -29,14 +31,19 @@ class App extends React.Component {
       hashHistory.push(/game/ + gameName);
     }
 
+    sendToProfile(user) {
+      hashHistory.push('/user')
+    }
+
     render() {
       return (
         <div>
           <Router history={hashHistory}>
-            <Route path="/" component={Home} sendToLobby={this.sendToLobby} handleSignUp={this.handleSignUp} handleLogIn={this.handleLogIn}/>
-            <Route path="/lobby" component={Lobby} sendToGame={this.sendToGame} disconnectTimeOut={this.state.disconnectTimeOut}/>
-            <Route path="/lobby/:disconnectTimeOut" component={Lobby} sendToGame={this.sendToGame} disconnectTimeOut={this.state.disconnectTimeOut}/>
+            <Route path="/" component={Home} sendToLobby={this.sendToLobby}/>
+            <Route path="/lobby" component={Lobby} sendToGame={this.sendToGame} sendToProfile={this.sendToProfile}/>
+            <Route path="/lobby/:disconnectTimeOut" component={Lobby} sendToGame={this.sendToGame} sendToProfile={this.sendToProfile}/>
             <Route path="/game/:gamename" component={Game} sendToLobby={this.sendToLobby}/>
+            <Route path="/user" component={UserProfile} sendToLobby={this.sendToLobby}/>
           </Router>
         </div>
       );
