@@ -127,7 +127,7 @@ class Game extends React.Component {
   }
 
   handleReturnToLobby() {
-    socket.emit('leave waiting room', {gameInstance: this.state.game, userWhoLeft: this.state.username})
+    socket.emit('leave waiting room', {gameName: this.props.params.gamename, userWhoLeft: this.state.username})
     this.props.route.sendToLobby();
   }
 
