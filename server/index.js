@@ -234,6 +234,14 @@ io.on('connection', (socket) => {
     })
   })
 
+  socket.on('leave waiting room', function(data) {
+    console.log('why doesnt it show up', data)
+    // var username = data.username;
+    // var gameName = data.gameName;
+
+    // queries.retrieveGameInstance(gameName)
+  })
+
   socket.on('prompt created', (data) => {
     var gameName = data.gameName;
     var prompt = data.prompt;
