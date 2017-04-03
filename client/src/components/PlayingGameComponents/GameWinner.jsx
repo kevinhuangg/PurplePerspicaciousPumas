@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react';
-import { Col, Panel } from 'react-bootstrap';
+import { Col, Panel, Glyphicon } from 'react-bootstrap';
 
 const GameWinner = (props) => {
 
@@ -21,7 +21,7 @@ const GameWinner = (props) => {
       gameWinner = [winner];
     } else if (roundWinners[winner] === currentWinner) {
       gameWinner.push(winner);
-    } 
+    }
   }
 
   let winnerMessage = '';
@@ -38,9 +38,10 @@ const GameWinner = (props) => {
   console.log(winnerMessage);
 
   return (
-    <Col id="GameWinner">
+    <Col id="GameWinner" className="animated tada">
       <Panel header="Winner">
-        <b>Congrats to {winnerMessage}!</b>
+        <b>Player <Glyphicon glyph="glyphicon glyphicon-user" />
+        {winnerMessage} wins!</b>
       </Panel>
       <br />
     </Col>

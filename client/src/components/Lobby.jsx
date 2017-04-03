@@ -28,7 +28,9 @@ class Lobby extends React.Component {
   componentDidMount() {
     this.getGames();
     this.getUsername();
+
   }
+
 
   getGames() {
     $.ajax({
@@ -73,10 +75,10 @@ class Lobby extends React.Component {
           {this.props.params.disconnectTimeOut && <PlayerDisconnected/>}
           <CreateGame sendToGame={this.props.route.sendToGame}/>
         </Col>
-        <Col id="lobby" sm={6} mdoffset={3}>
+        <Col id="lobby" sm={6} mdoffset={3} className="animated fadeInLeftBig">
           {this.state.games && <YourGames games={this.state.games} username={this.state.username} sendToGame={this.props.route.sendToGame}/>}
         </Col>
-        <Col id="lobby" sm={6} mdoffset={3}>
+        <Col id="lobby" sm={6} mdoffset={3} className="animated fadeInRightBig">
           <h4>Current Games:</h4>
           {this.state.games && <GameList games={this.state.games} sendToGame={this.props.route.sendToGame}/>}
         </Col>

@@ -75,7 +75,7 @@ class CreateGame extends React.Component {
 
     return (
       <div id="create-game">
-        <Button onClick={this.showModal} block ><h4>Start a New Game</h4></Button>
+        <Button className="animated pulse" onClick={this.showModal} ><h4>Start a New Game</h4></Button>
           {this.state.error && errorMessage}
           <Modal show={this.state.show} onHide={this.showModal} className={"modal-container"} >
             <Modal.Header style={{"text-align":"center"}}closeButton>
@@ -83,7 +83,7 @@ class CreateGame extends React.Component {
             </Modal.Header>
             <Modal.Body style={{"background-color":"#eeeeee"}}>
                 <div style={{"padding-bottom":"1em"}}>
-                  <input bsSize="large" block placeholder="Name Game..." type="text" value={this.state.gameName} onChange={this.handleChange} style={{"width":"100%", "height":"120%", "text-align":"center"}}/>
+                  <input placeholder="Name Game..." type="text" value={this.state.gameName} onChange={this.handleChange} style={{"width":"100%", "height":"120%", "text-align":"center"}}/>
                 </div>
                 <ButtonToolbar>
                   <ButtonGroup justified style={{"padding-bottom":"1em"}}>

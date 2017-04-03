@@ -3,7 +3,7 @@ import React from 'react';
 import Score from './PlayingGameComponents/Score.jsx';
 import GameWinner from './PlayingGameComponents/GameWinner.jsx';
 import RoundSummary from './RoundSummary.jsx';
-import { Col, PageHeader, Button } from 'react-bootstrap';
+import { Col, PageHeader, Button, Well } from 'react-bootstrap';
 
 const EndOfGame = (props) => {
 	return (
@@ -13,22 +13,24 @@ const EndOfGame = (props) => {
 	      <h4>Final Score</h4>
 	      <Score game={props.game}/>
         <br />
-        <GameWinner game={props.game}/>
-			  <br />
-			  <RoundSummary round={props.game.rounds[3]} judge={props.game.players[3]}/>
-			  <br />
-			  <RoundSummary round={props.game.rounds[2]} judge={props.game.players[2]}/>
-			  <br />
-			  <RoundSummary round={props.game.rounds[1]} judge={props.game.players[1]}/>
-			  <br />
-			  <RoundSummary round={props.game.rounds[0]} judge={props.game.players[0]}/>
-			  <br />
-        <Button onClick={() => {
-            props.sendToLobby()
-          }
-        }>
-          Return to Lobby
-        </Button>
+        <Well>
+          <GameWinner game={props.game}/>
+  			  <br />
+  			  <RoundSummary round={props.game.rounds[3]} judge={props.game.players[3]}/>
+  			  <br />
+  			  <RoundSummary round={props.game.rounds[2]} judge={props.game.players[2]}/>
+  			  <br />
+  			  <RoundSummary round={props.game.rounds[1]} judge={props.game.players[1]}/>
+  			  <br />
+  			  <RoundSummary round={props.game.rounds[0]} judge={props.game.players[0]}/>
+  			  <br />
+          <Button onClick={() => {
+              props.sendToLobby()
+            }
+          }>
+            Return to Lobby
+          </Button>
+        </Well>
 	    </Col>
 		</Col>
 	)

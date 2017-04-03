@@ -22,7 +22,7 @@ class LoginParent extends React.Component {
   render() {
 
     return (
-      <Col id="LoginParent" className={"LoginStyles"}>
+      <Col id="LoginParent" className={"animated swing LoginStyles"}>
         {!this.state.newUser ?
         (<LogIn sendToLobby={this.props.sendToLobby} />)
         : (<SignUp sendToLobby={this.props.sendToLobby} />)

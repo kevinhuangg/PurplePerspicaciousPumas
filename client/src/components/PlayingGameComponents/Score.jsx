@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Glyphicon } from 'react-bootstrap';
 
 class Score extends React.Component {
   constructor(props) {
@@ -28,7 +28,11 @@ class Score extends React.Component {
         <tbody>
           <tr>
             {Object.keys(scores).map((username) =>
-              <td><b>{username}</b>: {scores[username]} </td>
+
+              <td >
+                <p><Glyphicon glyph="glyphicon glyphicon-user" /> {username}</p>
+                <h2>{scores[username]}</h2>
+              </td>
             )}
           </tr>
         </tbody>

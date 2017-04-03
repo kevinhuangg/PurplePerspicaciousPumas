@@ -26,7 +26,7 @@ class Messages extends React.Component {
     return (
       <div className="all-messages" style={height} ref={(div) => {this.messageList = div;}}>
         {this.props.message.map((msg, i) => (
-          <MessageListItem key={i} msg={msg} />)
+          <MessageListItem key={i} msg={msg} userName={this.props.userName}/>)
         )}
       </div>
     )
