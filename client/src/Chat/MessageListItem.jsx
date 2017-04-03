@@ -9,18 +9,20 @@ var MessageListItem = function(props) {
     margin: '3px 20px',
     textAlign: 'right',
     float: 'right',
-    clear: 'right'
+    clear: 'right',
+    width: '70%'
   }
 
   var styleFriend = {
     backgroundColor: '#e0e0e0',
     borderRadius: '5px',
     padding: '10px',
-    paddingLeft: '20px',
+    // paddingLeft: '20px',
     margin: '3px 20px',
     textAlign: 'left',
     float: 'left',
-    clear: 'left'
+    clear: 'right',
+    width: '70%'
   }
 
   var pStyle = {
