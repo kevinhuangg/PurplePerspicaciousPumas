@@ -27,11 +27,10 @@ const GameWinner = (props) => {
   let winnerMessage = '';
 
   if (gameWinner.length === 1) {
-    winnerMessage = 'the winner: ' + gameWinner[0];
+    winnerMessage = gameWinner[0];
   } else {
-    winnerMessage += 'the winners: ',
     gameWinner.forEach(function(winner, index) {
-      index === gameWinner.length - 1 ? winnerMessage += winner + ', ' : winnerMessage += winner;
+      index === gameWinner.length - 1 ? winner + ', ' : "" + winner;
     })
   }
 

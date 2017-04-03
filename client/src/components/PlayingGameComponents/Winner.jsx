@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react';
-import { ListGroup, ListGroupItem, Col, Button } from 'react-bootstrap';
+import { ListGroup, ListGroupItem, Col, Button, ProgressBar } from 'react-bootstrap';
 
 class Winner extends React.Component {
   constructor(props) {
@@ -23,8 +23,17 @@ class Winner extends React.Component {
 
     return (
       <Col>
-        {this.props.secondsToRound && <h4>Next round starts in {this.props.secondsToRound} seconds!</h4>}
+        <div>
+        {this.props.secondsToRound &&
+          <div>
+          <h4>Starting next round in {this.props.secondsToRound} seconds!</h4>
+          <ProgressBar>
+            <ProgressBar bsStyle="warning" now={Math.abs(4 - this.props.secondsToRound) * 20} label={this.props.secondsToRound}/>
+          </ProgressBar>
+          </div>
+        }
         {results}
+        </div>
       </Col>
     )
 

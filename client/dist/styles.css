@@ -46,3 +46,7 @@ body {
 .LoginStyles {
   padding-top: 2em;
 }
+
+.panel-footer {
+  background-color: #d9edf7
+}

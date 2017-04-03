@@ -551,7 +551,7 @@
 
                         <td valign="top" class="mcnTextContent" style="padding-top:0; padding-left:18px; padding-bottom:9px; padding-right:18px;">
 
-                            Use this area to offer a short preview of your email's content.
+                            Welcome 2 Oranges 2 Oranges
                         </td>
                     </tr>
                 </tbody></table>
@@ -752,7 +752,7 @@
                     <tbody>
                         <tr>
                             <td align="center" valign="middle" class="mcnButtonContent" style="font-family: Arial; font-size: 16px; padding: 16px;">
-                                <a class="mcnButton " title="PLAY NOW" href="https://oranges-staging-pr-6.herokuapp.com/#/" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">PLAY NOW</a>
+                                <a class="mcnButton " title="PLAY NOW" href="https://oranges-staging-pr-23.herokuapp.com/#/" target="_blank" style="font-weight: bold;letter-spacing: normal;line-height: 100%;text-align: center;text-decoration: none;color: #FFFFFF;">PLAY NOW</a>
                             </td>
                         </tr>
                     </tbody>

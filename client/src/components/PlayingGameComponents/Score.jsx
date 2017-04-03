@@ -29,9 +29,11 @@ class Score extends React.Component {
           <tr>
             {Object.keys(scores).map((username) =>
 
-              <td >
-                <p><Glyphicon glyph="glyphicon glyphicon-user" /> {username}</p>
-                <h2>{scores[username]}</h2>
+              <td>
+                <div className="animated flipInX" >
+                  <p><Glyphicon glyph="glyphicon glyphicon-user" /> {username}</p>
+                  <h3>{scores[username]}</h3>
+                </div>
               </td>
             )}
           </tr>

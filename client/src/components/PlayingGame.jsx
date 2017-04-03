@@ -10,7 +10,7 @@ import ChooseWinner from './PlayingGameComponents/ChooseWinner.jsx';
 import Score from './PlayingGameComponents/Score.jsx';
 import CreatePrompt from './PlayingGameComponents/CreatePrompt.jsx';
 import JudgeCreatingPrompt from './PlayingGameComponents/JudgeCreatingPrompt.jsx';
-import { Col, PageHeader, ListGroup, ListGroupItem, Well, ProgressBar, Glyphicon } from 'react-bootstrap';
+import { Col, PageHeader, ListGroup, ListGroupItem, Well, ProgressBar, Glyphicon, Panel } from 'react-bootstrap';
 
 
 class PlayingGame extends React.Component{
@@ -62,36 +62,41 @@ class PlayingGame extends React.Component{
 
     return (
       <Col id="playing-game" sm={6} smOffset={3}>
-          <Well >
-            <Col >
-              <h2>{this.props.game.gameName}</h2>
-              <div>
-                <div>
-                  Current Judge
-                  <div><Glyphicon glyph="glyphicon glyphicon-user" /> {curJudge}</div>
-                </div>
-            </div>
-              <Score game={this.props.game}/>
-            </Col>
-          </Well>
         <Well >
           <Col >
-            <ProgressBar>
-              <ProgressBar bsStyle="info" now={(this.props.game.currentRound + 1) * 25} label={"Question " + (this.props.game.currentRound + 1) + "/4"}/>
-            </ProgressBar>
-
-            <div>Question {this.props.game.currentRound + 1}</div>
-            {stage !== -1 && <Prompt prompt={curPrompt}/>}
-
-            <Col >
-              {stage === -1 && this.state.role === 'judge' && <CreatePrompt handlePromptSubmission={this.props.handlePromptSubmission}/>}
-              {stage === -1 && this.state.role === 'player' && <JudgeCreatingPrompt judge={curJudge}/>}
-              {stage === 0 && this.state.role === 'judge' && <PlayersResponding />}
-              {stage === 0 && this.state.role === 'player' && <RespondToPrompt handleResponse={this.props.handleResponse}/>}
-              {stage === 1 && this.state.role === 'judge' && <ChooseWinner responses={responses} handleJudgeSelection={this.props.handleJudgeSelection}/>}
-              {stage === 1 && this.state.role === 'player' && <SeeResponses responses={responses}/>}
-              {stage === 2 && <Winner responses={responses} winner={winner} secondsToRound={this.props.secondsToRound}/>}
-            </Col>
+            <Panel
+            header={
+              <div>
+                <h2>{this.props.game.gameName}</h2>
+                <div>
+                  Current Judge  <Glyphicon glyph="glyphicon glyphicon-user" /> {curJudge}
+                </div>
+                <ProgressBar>
+                  <ProgressBar bsStyle="info" now={(this.props.game.currentRound + 1) * 25} label={"Question " + (this.props.game.currentRound + 1) + "/4"}/>
+                </ProgressBar>
+              </div>
+             }
+             footer={
+                <div>
+                  <p>Scoreboard</p>
+                  <Score game={this.props.game}/>
+                </div>
+              }
+              bsStyle="info">
+              <Well>
+                <p>Question {this.props.game.currentRound + 1}</p>
+                {stage !== -1 && <Prompt prompt={curPrompt} className="animated zoomInDown" />}
+                <Well>
+                  {stage === -1 && this.state.role === 'judge' && <CreatePrompt handlePromptSubmission={this.props.handlePromptSubmission}/>}
+                  {stage === -1 && this.state.role === 'player' && <JudgeCreatingPrompt judge={curJudge}/>}
+                  {stage === 0 && this.state.role === 'judge' && <PlayersResponding />}
+                  {stage === 0 && this.state.role === 'player' && <RespondToPrompt handleResponse={this.props.handleResponse}/>}
+                  {stage === 1 && this.state.role === 'judge' && <ChooseWinner responses={responses} handleJudgeSelection={this.props.handleJudgeSelection}/>}
+                  {stage === 1 && this.state.role === 'player' && <SeeResponses responses={responses}/>}
+                  {stage === 2 && <Winner responses={responses} winner={winner} secondsToRound={this.props.secondsToRound}/>}
+                </Well>
+              </Well>
+            </Panel>
           </Col>
         </Well>
       </Col>

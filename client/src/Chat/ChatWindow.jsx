@@ -2,6 +2,8 @@ import React from 'react';
 import Input from './ChatInput.jsx';
 import Messages from './ChatMessages.jsx';
 import io from 'socket.io-client';
+import { Col, Panel, Glyphicon } from 'react-bootstrap';
+
 
 // import 'bootstrap/dist/css/bootstrap.css';
 
@@ -37,21 +39,21 @@ class ChatWindow extends React.Component {
   render() {
     const divStyle = {
       position: 'relative',
-      display: 'inline-block'
+      display: 'inline-block',
+      maxWidth: "280px"
     }
     const componentStyle = {
       position: 'absolute',
       width: '15%'
     }
     return(
-      <div>
-          <div className="chat">
-            <h3>Game Chat</h3>
-          </div>
-          <div style={divStyle}>
-            <Messages message={this.state.messages} style={componentStyle} userName={this.props.userName}/>
-            <Input userName={this.props.userName} submit={this.messageSubmit} style={componentStyle} />
-          </div>
+      <div style={{"float":"right"}}>
+          <Panel header={"Game Chat"} className="animated zoomInRight chat" bsStyle="danger" >
+            <div style={divStyle}>
+              <Messages message={this.state.messages} style={componentStyle} userName={this.props.userName}/>
+              <Input userName={this.props.userName} submit={this.messageSubmit} style={componentStyle} />
+            </div>
+          </Panel>
       </div>
     )
   }

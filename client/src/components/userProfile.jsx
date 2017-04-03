@@ -15,7 +15,7 @@ class UserProfile extends React.Component {
   	  userDummy: {
   	  	username: 'NyanCat4Lyfe',
   	  	achievements: {OrangeKing: false, GoodEffort: true, ParticipationAward: false,
-  	  				   Lost3InaRow: true, TimeSpentOver24Hrs:true, Played1stGame: false, 
+  	  				   Lost3InaRow: true, TimeSpentOver24Hrs:true, Played1stGame: false,
   	  				   Won1stGame: true, Won3InaRow: false
   	  				  },
   	  	gamesWon: 72,
@@ -55,28 +55,35 @@ class UserProfile extends React.Component {
 
   handleClickGameStatisticsTab(event) {
   	this.setState({
-  		achievementTabActive: false, 
+  		achievementTabActive: false,
   		gameStatisticsTabActive: true
   	})
   }
 
   handleClickAchievementTab(event) {
   	this.setState({
-  		achievementTabActive: true, 
+  		achievementTabActive: true,
   		gameStatisticsTabActive: false
   	})
   }
 
   render(){
   	return (
-  	  <div>
-        <Button id="return-to-lobby" bsSize="small" onClick={this.props.route.sendToLobby}>Return To Lobby</Button>
-        <div>{this.props.params.username}</div>
-  	    <TabButton displayName='Achievement' handleClick={this.handleClickAchievementTab}/>
-  	    <TabButton displayName='Game Statistics' handleClick={this.handleClickGameStatisticsTab}/>
+  	  <Col sm={6} smOffset={3}>
+        <div>
+          <div>
+          <Button id="return-to-lobby" bsSize="small" onClick={this.props.route.sendToLobby}>Return To Lobby</Button>
+          </div>
+          <div>
+          <Button onClick={this.handleClickAchievementTab}>Achievement</Button>
+          </div>
+          <div>
+          <Button onClick={this.handleClickGameStatisticsTab}>Game Statistics</Button>
+          </div>
+        </div>
   	    {this.state.gameStatisticsTabActive && <GameStatisticsPane data={this.state.userDummy}/>}
   	    {this.state.achievementTabActive && <AchievementPane data={this.state.userDummy}/>}
-  	  </div>
+  	  </Col>
   	)
   }
 
